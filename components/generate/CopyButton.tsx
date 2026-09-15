@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useTranslations } from "next-intl";
 import { AnimatePresence, motion } from "framer-motion";
 import { Check, Copy } from "lucide-react";
 import { useToast } from "@/components/ui/Toast";
@@ -13,9 +14,13 @@ interface CopyButtonProps {
   className?: string;
 }
 
-export function CopyButton({ text, label = "Copy", toastMessage = "Copied to clipboard", className }: CopyButtonProps) {
+export function CopyButton({ text, label, toastMessage, className }: CopyButtonProps) {
+  const t = useTranslations("copy");
   const [copied, setCopied] = useState(false);
   const { showToast } = useToast();
+
+  const resolvedLabel = label ?? t("copy");
+  const resolvedToast = toastMessage ?? t("copiedToast");
 
   async function handleCopy() {
     try {
@@ -24,7 +29,7 @@ export function CopyButton({ text, label = "Copy", toastMessage = "Copied to cli
       // Clipboard API unavailable — fall back silently, toast still confirms intent.
     }
     setCopied(true);
-    showToast(toastMessage);
+    showToast(resolvedToast);
     setTimeout(() => setCopied(false), 1600);
   }
 
@@ -49,7 +54,7 @@ export function CopyButton({ text, label = "Copy", toastMessage = "Copied to cli
             className="flex items-center gap-1.5 text-accent"
           >
             <Check className="h-3.5 w-3.5" />
-            Copied
+            {t("copied")}
           </motion.span>
         ) : (
           <motion.span
@@ -61,7 +66,7 @@ export function CopyButton({ text, label = "Copy", toastMessage = "Copied to cli
             className="flex items-center gap-1.5"
           >
             <Copy className="h-3.5 w-3.5" />
-            {label}
+            {resolvedLabel}
           </motion.span>
         )}
       </AnimatePresence>

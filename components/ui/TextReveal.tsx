@@ -18,16 +18,23 @@ const TAGS = {
   p: motion.p,
 } as const;
 
+const EDGE_PUNCTUATION = /^[¿¡"'(]+|[.,;:!?)"'’”]+$/g;
+
+function normalizeWord(word: string): string {
+  return word.replace(EDGE_PUNCTUATION, "");
+}
+
 export function TextReveal({ text, className, as = "h2", delay = 0, highlight = [] }: TextRevealProps) {
   const words = text.split(" ");
   const Tag = TAGS[as];
+  const normalizedHighlight = highlight.map(normalizeWord);
 
   return (
     <Tag className={cn("flex flex-wrap", className)}>
       {words.map((word, i) => (
         <span key={i} className="mr-[0.28em] overflow-hidden pb-[0.15em]">
           <motion.span
-            className={cn("inline-block", highlight.includes(word.replace(/[.,]/g, "")) && "text-accent")}
+            className={cn("inline-block", normalizedHighlight.includes(normalizeWord(word)) && "text-accent")}
             initial={{ y: "110%" }}
             whileInView={{ y: "0%" }}
             viewport={{ once: true, amount: 0.6 }}

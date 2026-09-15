@@ -1,17 +1,18 @@
 "use client";
 
+import { useTranslations } from "next-intl";
 import { Download } from "lucide-react";
 import { CopyButton } from "@/components/generate/CopyButton";
 import { Button } from "@/components/ui/Button";
 import { formatTimestamp } from "@/lib/utils";
 import type { StoryboardResponse } from "@/lib/types";
 
-function buildCombinedText(storyboard: StoryboardResponse): string {
+function buildCombinedText(storyboard: StoryboardResponse, segmentLabel: (n: number) => string): string {
   const header = `${storyboard.title}\n${storyboard.logline}\n${"=".repeat(40)}\n\n`;
   const body = storyboard.segments
     .map(
       (seg) =>
-        `SEGMENT ${seg.index + 1} · ${formatTimestamp(seg.startTime)}–${formatTimestamp(seg.endTime)}\nCamera: ${seg.cameraTechniques.join(", ")}\nScene: ${seg.sceneDescription}\n\nPrompt:\n${seg.videoPrompt}`
+        `${segmentLabel(seg.index + 1)} · ${formatTimestamp(seg.startTime)}–${formatTimestamp(seg.endTime)}\n${seg.cameraTechniques.join(", ")}\n${seg.sceneDescription}\n\n${seg.videoPrompt}`
     )
     .join("\n\n" + "-".repeat(40) + "\n\n");
   return header + body;
@@ -30,14 +31,16 @@ function downloadFile(filename: string, content: string, type: string) {
 }
 
 export function ExportControls({ storyboard }: { storyboard: StoryboardResponse }) {
-  const combinedText = buildCombinedText(storyboard);
+  const t = useTranslations("timeline");
+  const tSegment = useTranslations("segment");
+  const combinedText = buildCombinedText(storyboard, (n) => tSegment("segmentLabel", { n }));
 
   return (
     <div className="flex flex-wrap items-center gap-3">
       <CopyButton
         text={combinedText}
-        label="Copy All Prompts"
-        toastMessage="All prompts copied to clipboard"
+        label={t("copyAllPrompts")}
+        toastMessage={t("allCopiedToast")}
         className="px-4 py-2"
       />
       <Button
@@ -46,7 +49,7 @@ export function ExportControls({ storyboard }: { storyboard: StoryboardResponse 
         onClick={() => downloadFile(`${storyboard.title.replace(/\s+/g, "-").toLowerCase()}.txt`, combinedText, "text/plain")}
       >
         <Download className="h-3.5 w-3.5" />
-        Export .txt
+        {t("exportTxt")}
       </Button>
       <Button
         variant="secondary"
@@ -60,7 +63,7 @@ export function ExportControls({ storyboard }: { storyboard: StoryboardResponse 
         }
       >
         <Download className="h-3.5 w-3.5" />
-        Export .json
+        {t("exportJson")}
       </Button>
     </div>
   );

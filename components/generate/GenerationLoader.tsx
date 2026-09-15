@@ -1,25 +1,20 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { useTranslations } from "next-intl";
 import { motion, AnimatePresence } from "framer-motion";
 
-const STAGES = [
-  "Analyzing topic…",
-  "Breaking down timeline…",
-  "Framing shots…",
-  "Choosing camera language…",
-  "Writing cinematic prompts…",
-];
-
 export function GenerationLoader() {
+  const t = useTranslations("loader");
+  const stages = [t("stage1"), t("stage2"), t("stage3"), t("stage4"), t("stage5")];
   const [stageIndex, setStageIndex] = useState(0);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setStageIndex((i) => Math.min(i + 1, STAGES.length - 1));
+      setStageIndex((i) => Math.min(i + 1, stages.length - 1));
     }, 1600);
     return () => clearInterval(interval);
-  }, []);
+  }, [stages.length]);
 
   return (
     <div className="mx-auto flex max-w-xl flex-col items-center px-5 py-32 text-center">
@@ -35,14 +30,14 @@ export function GenerationLoader() {
       <div className="mt-8 h-6 overflow-hidden">
         <AnimatePresence mode="wait">
           <motion.p
-            key={STAGES[stageIndex]}
+            key={stages[stageIndex]}
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             exit={{ y: -20, opacity: 0 }}
             transition={{ duration: 0.35, ease: "easeOut" }}
             className="text-sm font-medium uppercase tracking-widest text-muted"
           >
-            {STAGES[stageIndex]}
+            {stages[stageIndex]}
           </motion.p>
         </AnimatePresence>
       </div>
@@ -51,14 +46,12 @@ export function GenerationLoader() {
         <motion.div
           className="h-full bg-accent"
           initial={{ width: "0%" }}
-          animate={{ width: `${((stageIndex + 1) / STAGES.length) * 100}%` }}
+          animate={{ width: `${((stageIndex + 1) / stages.length) * 100}%` }}
           transition={{ duration: 0.6, ease: "easeOut" }}
         />
       </div>
 
-      <p className="mt-4 text-xs text-muted/70">
-        This usually takes 15–40 seconds depending on complexity.
-      </p>
+      <p className="mt-4 text-xs text-muted/70">{t("hint")}</p>
     </div>
   );
 }

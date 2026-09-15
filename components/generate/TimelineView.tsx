@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useTranslations } from "next-intl";
 import { motion } from "framer-motion";
 import { Badge } from "@/components/ui/Badge";
 import { SegmentCard } from "@/components/generate/SegmentCard";
@@ -15,6 +16,8 @@ interface TimelineViewProps {
 }
 
 export function TimelineView({ storyboard, onSegmentUpdate }: TimelineViewProps) {
+  const t = useTranslations("timeline");
+  const tSegment = useTranslations("segment");
   const [regeneratingIndex, setRegeneratingIndex] = useState<number | null>(null);
   const { showToast } = useToast();
 
@@ -36,11 +39,11 @@ export function TimelineView({ storyboard, onSegmentUpdate }: TimelineViewProps)
         }),
       });
       const data = await res.json();
-      if (!res.ok) throw new Error(data.error || "Failed to regenerate segment.");
+      if (!res.ok) throw new Error(data.error || t("regenerateFailedToast"));
       onSegmentUpdate(index, data.segment);
-      showToast(`Segment ${index + 1} regenerated`);
+      showToast(tSegment("regeneratedToast", { n: index + 1 }));
     } catch (err) {
-      showToast(err instanceof Error ? err.message : "Failed to regenerate segment.");
+      showToast(err instanceof Error ? err.message : t("regenerateFailedToast"));
     } finally {
       setRegeneratingIndex(null);
     }
@@ -56,7 +59,9 @@ export function TimelineView({ storyboard, onSegmentUpdate }: TimelineViewProps)
         <div className="flex flex-wrap items-center gap-2">
           <Badge variant="outline">{storyboard.tone}</Badge>
           <Badge variant="outline">{storyboard.aspectRatio}</Badge>
-          <Badge variant="outline">{formatTimestamp(storyboard.totalDuration)} total</Badge>
+          <Badge variant="outline">
+            {formatTimestamp(storyboard.totalDuration)} {t("totalSuffix")}
+          </Badge>
         </div>
         <h1 className="mt-5 text-3xl font-bold tracking-tight sm:text-4xl">{storyboard.title}</h1>
         <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted">{storyboard.logline}</p>

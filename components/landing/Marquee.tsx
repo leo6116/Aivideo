@@ -1,14 +1,11 @@
-const ITEMS = [
-  "SCRIPT",
-  "TIMELINE",
-  "CINEMATIC PROMPTS",
-  "COPY & PASTE",
-  "CAMERA LANGUAGE",
-  "3–5S PACING",
-];
+"use client";
+
+import { useTranslations } from "next-intl";
 
 export function Marquee() {
-  const content = ITEMS.join("  ·  ") + "  ·  ";
+  const t = useTranslations("marquee");
+  const items = t("items").split(",");
+  const content = items.join("  ·  ") + "  ·  ";
 
   return (
     <div className="overflow-hidden border-y border-border bg-accent py-4">

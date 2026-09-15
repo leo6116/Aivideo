@@ -1,0 +1,148 @@
+{
+  "metadata": {
+    "title": "SceneForge AI — Scénarios et Prompts Vidéo IA Cinématographiques",
+    "description": "Transformez un simple sujet ou une image de référence en un scénario vidéo entièrement structuré, découpé en une timeline parfaitement rythmée de prompts vidéo IA cinématographiques, prêts à copier-coller.",
+    "ogDescription": "De l'idée à des prompts vidéo IA cinématographiques prêts à copier-coller — découpés en une timeline parfaitement rythmée, en moins d'une minute."
+  },
+  "nav": {
+    "home": "Accueil",
+    "generate": "Générer",
+    "history": "Historique",
+    "newProject": "Nouveau projet"
+  },
+  "footer": {
+    "tagline": "De l'idée à des prompts vidéo IA cinématographiques prêts à copier-coller — découpés en une timeline parfaitement rythmée, en moins d'une minute.",
+    "product": "Produit",
+    "worksWith": "Compatible avec",
+    "copyright": "© {year} SceneForge AI. Conçu pour les créateurs."
+  },
+  "languageSwitcher": {
+    "label": "Langue"
+  },
+  "hero": {
+    "eyebrow": "Générateur de Scénarios et Prompts Vidéo IA",
+    "headline": "Transforme une idée en une chronologie cinématographique de prompts.",
+    "headlineHighlight": "cinématographique,prompts",
+    "subheadline": "Collez un sujet ou déposez une image de référence. SceneForge AI le découpe en plans de 3 à 5 secondes et rédige des prompts ultra détaillés, cinématographiques et prêts à copier-coller pour Sora, Runway, Kling, Luma, Veo et Pika — aucune expertise en ingénierie de prompts requise.",
+    "startGenerating": "Commencer à générer",
+    "viewHistory": "Voir l'historique",
+    "statBeatValue": "3–5s",
+    "statBeatLabel": "durée par plan",
+    "statToolsValue": "6",
+    "statToolsLabel": "outils vidéo IA",
+    "statPromptValue": "<60s",
+    "statPromptLabel": "jusqu'au premier prompt",
+    "statReadyValue": "100%",
+    "statReadyLabel": "prêt à copier-coller"
+  },
+  "marquee": {
+    "items": "SCÉNARIO,CHRONOLOGIE,PROMPTS CINÉMATOGRAPHIQUES,COPIER-COLLER,LANGAGE DE CAMÉRA,RYTHME 3–5S"
+  },
+  "howItWorks": {
+    "eyebrow": "Comment ça marche",
+    "heading": "De la page blanche au découpage technique.",
+    "step1Title": "Décrivez votre idée",
+    "step1Body": "Saisissez un sujet ou déposez une image de référence, définissez la durée, le ton et le format d'image souhaités.",
+    "step2Title": "L'IA la découpe en timeline",
+    "step2Body": "Votre idée est transformée en scénario et découpée en plans précis de 3 à 5 secondes, horodatés du début à la fin.",
+    "step3Title": "Copiez les prompts cinématographiques",
+    "step3Body": "Chaque plan est accompagné d'un prompt professionnel en anglais, dense en détails — mouvements de caméra, éclairage, objectif, ambiance — prêt à coller."
+  },
+  "featureGrid": {
+    "eyebrow": "Pourquoi SceneForge",
+    "heading": "Conçu par des réalisateurs, pour les créateurs.",
+    "f1Title": "Langage de caméra cinématographique intégré",
+    "f1Body": "Travelling avant, whip pan, point net progressif, plans en orbite — appliqués avec intention, jamais au hasard, par un moteur de prompts formé comme un réalisateur.",
+    "f2Title": "Rythme de 3–5s calibré pour le format court",
+    "f2Body": "Chaque plan est minuté selon la capacité d'attention des Reels, TikTok et Shorts — sans temps mort, sans coupe précipitée.",
+    "f3Title": "Compatible avec tous les outils vidéo IA",
+    "f3Body": "Les prompts sont rédigés de façon générique et précise pour être collés directement dans Sora, Runway, Kling, Luma, Veo ou Pika.",
+    "f4Title": "Comprend les images de référence",
+    "f4Body": "Importez un moodboard ou une photo produit, et l'IA construit tout le récit à partir de ce qu'elle y voit.",
+    "f5Title": "Récit adapté au ton",
+    "f5Body": "Cinématographique, énergique, documentaire, élégant ou comique — le ton façonne à la fois l'histoire et les choix de plans.",
+    "f6Title": "Aucune expertise en ingénierie de prompts requise",
+    "f6Body": "Vous apportez l'idée. SceneForge rédige pour vous le paragraphe de prompt dense et technique."
+  },
+  "preview": {
+    "eyebrow": "Aperçu",
+    "heading": "Votre storyboard, plan par plan.",
+    "seg1Scene": "Le réveil sonne dans une chambre sombre ; une main se tend pour l'éteindre.",
+    "seg2Scene": "Elle se lève, la lumière du soleil envahit la pièce, étirement plein d'énergie.",
+    "seg3Scene": "Whip pan vers un smoothie vert frais posé sur le plan de travail de la cuisine."
+  },
+  "generate": {
+    "newProject": "Nouveau projet",
+    "buildStoryboard": "Construisez votre storyboard.",
+    "describeIdea": "Décrivez votre idée",
+    "topicPlaceholder": "Une vidéo cinématographique de routine matinale pour une influenceuse fitness, ton énergique et motivant...",
+    "charCount": "{count}/{max}",
+    "referenceImage": "Image de référence (facultatif)",
+    "dropzonePrefix": "Glissez-déposez une image de référence, ou",
+    "dropzoneBrowse": "parcourir",
+    "dropzoneHint": "PNG, JPEG ou WebP · jusqu'à 8 Mo",
+    "imageTypeError": "Veuillez téléverser une image au format PNG, JPEG ou WebP.",
+    "imageSizeError": "L'image doit faire moins de 8 Mo.",
+    "removeImage": "Supprimer l'image",
+    "targetDuration": "Durée cible",
+    "toneStyle": "Ton / style",
+    "aspectRatio": "Format d'image",
+    "toneCinematic": "Cinématographique",
+    "toneEnergetic": "Énergique / montage rapide",
+    "toneDocumentary": "Documentaire",
+    "toneLuxury": "Élégant / lent",
+    "toneComedic": "Comique",
+    "aspectVertical": "9:16 Vertical",
+    "aspectHorizontal": "16:9 Horizontal",
+    "aspectSquare": "1:1 Carré",
+    "generateButton": "Générer le storyboard",
+    "generatingButton": "Génération…",
+    "topicRequiredError": "Ajoutez une description du sujet ou téléversez une image de référence pour continuer.",
+    "topicMaxError": "Limitez votre sujet à 1200 caractères."
+  },
+  "loader": {
+    "stage1": "Analyse du sujet…",
+    "stage2": "Découpage de la timeline…",
+    "stage3": "Cadrage des plans…",
+    "stage4": "Choix du langage de caméra…",
+    "stage5": "Rédaction des prompts cinématographiques…",
+    "hint": "Cela prend généralement 15 à 40 secondes selon la complexité."
+  },
+  "error": {
+    "heading": "Échec de la génération",
+    "tryAgain": "Réessayer",
+    "unknown": "Erreur inconnue.",
+    "generic": "Une erreur s'est produite. Veuillez réessayer."
+  },
+  "timeline": {
+    "totalSuffix": "au total",
+    "copyAllPrompts": "Copier tous les prompts",
+    "exportTxt": "Exporter .txt",
+    "exportJson": "Exporter .json",
+    "allCopiedToast": "Tous les prompts copiés dans le presse-papiers",
+    "regenerateFailedToast": "Échec de la régénération du plan."
+  },
+  "segment": {
+    "segmentLabel": "Plan {n}",
+    "tryAgain": "Réessayer",
+    "hidePrompt": "Masquer le prompt",
+    "showPrompt": "Afficher le prompt",
+    "copiedToast": "Prompt du plan {n} copié",
+    "regeneratedToast": "Plan {n} régénéré"
+  },
+  "copy": {
+    "copy": "Copier",
+    "copied": "Copié",
+    "copiedToast": "Copié dans le presse-papiers"
+  },
+  "history": {
+    "eyebrow": "Vos projets",
+    "title": "Historique",
+    "emptyState": "Aucun projet pour l'instant — générez votre premier storyboard.",
+    "startGenerating": "Commencer à générer",
+    "open": "Ouvrir",
+    "deleteProject": "Supprimer le projet",
+    "segmentsSuffix": "plans",
+    "totalLabel": "au total"
+  }
+}

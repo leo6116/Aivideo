@@ -1,13 +1,15 @@
 "use client";
 
+import { useMemo } from "react";
 import { useForm, Controller } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useTranslations } from "next-intl";
 import { ArrowRight } from "lucide-react";
 import { Textarea } from "@/components/ui/Textarea";
 import { ChoiceGroup } from "@/components/ui/ChoiceGroup";
 import { Button } from "@/components/ui/Button";
 import { ImageDropzone } from "@/components/generate/ImageDropzone";
-import { generateFormSchema, type GenerateFormValues } from "@/lib/validation";
+import { makeGenerateFormSchema, type GenerateFormValues } from "@/lib/validation";
 import type { AspectRatio, Duration, Tone } from "@/lib/types";
 
 interface InputPanelProps {
@@ -15,27 +17,38 @@ interface InputPanelProps {
   submitting: boolean;
 }
 
-const DURATIONS: { value: Duration; label: string }[] = [
-  { value: 15, label: "15s" },
-  { value: 30, label: "30s" },
-  { value: 60, label: "60s" },
-];
-
-const TONES: { value: Tone; label: string }[] = [
-  { value: "Cinematic", label: "Cinematic" },
-  { value: "Energetic", label: "Energetic / Fast-cut" },
-  { value: "Documentary", label: "Documentary" },
-  { value: "Luxury", label: "Luxury / Slow" },
-  { value: "Comedic", label: "Comedic" },
-];
-
-const ASPECT_RATIOS: { value: AspectRatio; label: string }[] = [
-  { value: "9:16", label: "9:16 Vertical" },
-  { value: "16:9", label: "16:9 Horizontal" },
-  { value: "1:1", label: "1:1 Square" },
-];
-
 export function InputPanel({ onSubmit, submitting }: InputPanelProps) {
+  const t = useTranslations("generate");
+
+  const DURATIONS: { value: Duration; label: string }[] = [
+    { value: 15, label: "15s" },
+    { value: 30, label: "30s" },
+    { value: 60, label: "60s" },
+  ];
+
+  const TONES: { value: Tone; label: string }[] = [
+    { value: "Cinematic", label: t("toneCinematic") },
+    { value: "Energetic", label: t("toneEnergetic") },
+    { value: "Documentary", label: t("toneDocumentary") },
+    { value: "Luxury", label: t("toneLuxury") },
+    { value: "Comedic", label: t("toneComedic") },
+  ];
+
+  const ASPECT_RATIOS: { value: AspectRatio; label: string }[] = [
+    { value: "9:16", label: t("aspectVertical") },
+    { value: "16:9", label: t("aspectHorizontal") },
+    { value: "1:1", label: t("aspectSquare") },
+  ];
+
+  const schema = useMemo(
+    () =>
+      makeGenerateFormSchema({
+        topicMax: t("topicMaxError"),
+        topicRequired: t("topicRequiredError"),
+      }),
+    [t]
+  );
+
   const {
     register,
     handleSubmit,
@@ -44,7 +57,7 @@ export function InputPanel({ onSubmit, submitting }: InputPanelProps) {
     watch,
     formState: { errors },
   } = useForm<GenerateFormValues>({
-    resolver: zodResolver(generateFormSchema),
+    resolver: zodResolver(schema),
     defaultValues: {
       topic: "",
       duration: 30,
@@ -59,24 +72,24 @@ export function InputPanel({ onSubmit, submitting }: InputPanelProps) {
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-10">
       <div>
         <label htmlFor="topic" className="mb-3 block text-xs font-medium uppercase tracking-widest text-muted">
-          Describe your idea
+          {t("describeIdea")}
         </label>
         <Textarea
           id="topic"
           rows={5}
-          placeholder="A cinematic morning routine video for a fitness influencer, energetic and motivational tone..."
+          placeholder={t("topicPlaceholder")}
           maxLength={1200}
           {...register("topic")}
         />
         <div className="mt-2 flex items-center justify-between text-xs text-muted">
           <span>{errors.topic?.message}</span>
-          <span>{(topic ?? "").length}/1200</span>
+          <span>{t("charCount", { count: (topic ?? "").length, max: 1200 })}</span>
         </div>
       </div>
 
       <div>
         <label className="mb-3 block text-xs font-medium uppercase tracking-widest text-muted">
-          Reference image (optional)
+          {t("referenceImage")}
         </label>
         <ImageDropzone
           onImageChange={(data) => {
@@ -90,7 +103,7 @@ export function InputPanel({ onSubmit, submitting }: InputPanelProps) {
         control={control}
         name="duration"
         render={({ field }) => (
-          <ChoiceGroup label="Target duration" options={DURATIONS} value={field.value} onChange={field.onChange} />
+          <ChoiceGroup label={t("targetDuration")} options={DURATIONS} value={field.value} onChange={field.onChange} />
         )}
       />
 
@@ -98,7 +111,7 @@ export function InputPanel({ onSubmit, submitting }: InputPanelProps) {
         control={control}
         name="tone"
         render={({ field }) => (
-          <ChoiceGroup label="Tone / style" options={TONES} value={field.value} onChange={field.onChange} />
+          <ChoiceGroup label={t("toneStyle")} options={TONES} value={field.value} onChange={field.onChange} />
         )}
       />
 
@@ -107,7 +120,7 @@ export function InputPanel({ onSubmit, submitting }: InputPanelProps) {
         name="aspectRatio"
         render={({ field }) => (
           <ChoiceGroup
-            label="Aspect ratio"
+            label={t("aspectRatio")}
             options={ASPECT_RATIOS}
             value={field.value}
             onChange={field.onChange}
@@ -116,7 +129,7 @@ export function InputPanel({ onSubmit, submitting }: InputPanelProps) {
       />
 
       <Button type="submit" size="lg" magnetic disabled={submitting} className="w-full sm:w-auto">
-        {submitting ? "Generating…" : "Generate Storyboard"}
+        {submitting ? t("generatingButton") : t("generateButton")}
         {!submitting && <ArrowRight className="h-4 w-4" />}
       </Button>
     </form>

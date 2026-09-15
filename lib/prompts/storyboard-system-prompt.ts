@@ -1,5 +1,17 @@
 import type { GenerateStoryboardInput, RegenerateSegmentInput } from "@/lib/types";
 
+const LOCALE_NAMES: Record<string, string> = {
+  en: "English",
+  vi: "Vietnamese",
+  es: "Spanish",
+  fr: "French",
+};
+
+function localeDisplayName(locale?: string): string {
+  if (!locale) return "English";
+  return LOCALE_NAMES[locale] ?? "English";
+}
+
 const CAMERA_GLOSSARY = `
 CAMERA & SHOT VOCABULARY (use accurately and contextually — never randomly):
 - Dolly In / Dolly Out: camera physically moves toward/away from the subject on a track.
@@ -24,6 +36,7 @@ You are not limited to this list — draw on your full professional cinematograp
 
 export function buildStoryboardSystemPrompt(input: GenerateStoryboardInput): string {
   const segmentCountHint = Math.max(3, Math.round(input.duration / 4));
+  const narrativeLanguage = localeDisplayName(input.locale);
 
   return `
 You are an award-winning film director, cinematographer, and short-form video editor who writes professional shot lists and prompts for AI video generation tools (Sora, Runway Gen-3, Kling, Luma, Veo, Pika) for a living. Your job is to turn a client's topic (and, if provided, a reference image) into a tightly-paced, timeline-broken-down storyboard with prompts that are immediately usable, with zero editing, in any AI video generator.
@@ -51,7 +64,7 @@ For every segment, write a "videoPrompt" value that is:
 - Consistent with the overall tone "${input.tone}" and with continuity from the previous segment (same subject/setting/wardrobe unless the narrative calls for a change).
 - Immediately copy-paste ready — no placeholders, no brackets, no meta-commentary.
 
-Scene descriptions, the title, and the logline may stay in a natural, readable form (they can mirror the language/style of the user's input topic to stay useful to a non-English-first user) — but "videoPrompt" must ALWAYS be English per the rule above.
+Scene descriptions, the title, and the logline should be written in natural, readable ${narrativeLanguage} (mirror the user's input topic language if it clearly differs from ${narrativeLanguage}) — but "videoPrompt" must ALWAYS be English per the rule above, regardless of ${narrativeLanguage}.
 
 STEP 5 — OUTPUT:
 Return ONLY structured data matching the required schema — no extra commentary, no markdown fences, no explanation outside the schema fields.
@@ -79,6 +92,7 @@ Return ONLY structured data matching the required schema — no extra commentary
 
 export function buildUserMessage(input: GenerateStoryboardInput): string {
   const parts: string[] = [];
+  parts.push(`Narrative language (title/logline/scene descriptions): ${localeDisplayName(input.locale)}`);
   parts.push(`Target duration: ${input.duration} seconds`);
   parts.push(`Tone/style: ${input.tone}`);
   parts.push(`Aspect ratio: ${input.aspectRatio}`);

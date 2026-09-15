@@ -32,19 +32,31 @@ export const MAX_TOPIC_LENGTH = 1200;
 export const MAX_IMAGE_BYTES = 8 * 1024 * 1024;
 export const ACCEPTED_IMAGE_TYPES = ["image/png", "image/jpeg", "image/webp"];
 
-export const generateFormSchema = z
-  .object({
-    topic: z.string().max(MAX_TOPIC_LENGTH, "Keep your topic under 1200 characters.").optional(),
-    imageBase64: z.string().optional(),
-    imageMediaType: z.string().optional(),
-    duration: durationSchema,
-    tone: toneSchema,
-    aspectRatio: aspectRatioSchema,
-  })
-  .refine((data) => (data.topic && data.topic.trim().length > 0) || !!data.imageBase64, {
-    message: "Add a topic description or upload a reference image to continue.",
-    path: ["topic"],
-  });
+function buildGenerateFormSchema(messages: { topicMax: string; topicRequired: string }) {
+  return z
+    .object({
+      topic: z.string().max(MAX_TOPIC_LENGTH, messages.topicMax).optional(),
+      imageBase64: z.string().optional(),
+      imageMediaType: z.string().optional(),
+      duration: durationSchema,
+      tone: toneSchema,
+      aspectRatio: aspectRatioSchema,
+      locale: z.string().optional(),
+    })
+    .refine((data) => (data.topic && data.topic.trim().length > 0) || !!data.imageBase64, {
+      message: messages.topicRequired,
+      path: ["topic"],
+    });
+}
+
+export const generateFormSchema = buildGenerateFormSchema({
+  topicMax: "Keep your topic under 1200 characters.",
+  topicRequired: "Add a topic description or upload a reference image to continue.",
+});
+
+export function makeGenerateFormSchema(messages: { topicMax: string; topicRequired: string }) {
+  return buildGenerateFormSchema(messages);
+}
 
 export type GenerateFormValues = z.infer<typeof generateFormSchema>;
 

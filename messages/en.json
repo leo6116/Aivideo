@@ -1,0 +1,148 @@
+{
+  "metadata": {
+    "title": "SceneForge AI — Cinematic AI Video Scripts & Prompts",
+    "description": "Turn a single topic or reference image into a fully structured video script, broken into a perfectly paced timeline of cinematic, copy-paste-ready AI video prompts.",
+    "ogDescription": "From idea to cinematic, copy-paste-ready AI video prompts — broken into a perfectly paced timeline, in under a minute."
+  },
+  "nav": {
+    "home": "Home",
+    "generate": "Generate",
+    "history": "History",
+    "newProject": "New Project"
+  },
+  "footer": {
+    "tagline": "From idea to cinematic, copy-paste-ready AI video prompts — broken into a perfectly paced timeline, in under a minute.",
+    "product": "Product",
+    "worksWith": "Works with",
+    "copyright": "© {year} SceneForge AI. Built for creators."
+  },
+  "languageSwitcher": {
+    "label": "Language"
+  },
+  "hero": {
+    "eyebrow": "AI Video Script & Prompt Generator",
+    "headline": "Turn one idea into a cinematic timeline of prompts.",
+    "headlineHighlight": "cinematic,prompts",
+    "subheadline": "Paste a topic or drop in a reference image. SceneForge AI breaks it into 3–5 second beats and writes ultra-detailed, cinematic, copy-paste-ready prompts for Sora, Runway, Kling, Luma, Veo, and Pika — zero prompt-engineering required.",
+    "startGenerating": "Start Generating",
+    "viewHistory": "View History",
+    "statBeatValue": "3–5s",
+    "statBeatLabel": "beat length",
+    "statToolsValue": "6",
+    "statToolsLabel": "AI video tools",
+    "statPromptValue": "<60s",
+    "statPromptLabel": "to first prompt",
+    "statReadyValue": "100%",
+    "statReadyLabel": "copy-paste ready"
+  },
+  "marquee": {
+    "items": "SCRIPT,TIMELINE,CINEMATIC PROMPTS,COPY & PASTE,CAMERA LANGUAGE,3–5S PACING"
+  },
+  "howItWorks": {
+    "eyebrow": "How it works",
+    "heading": "From blank page to shot list.",
+    "step1Title": "Describe your idea",
+    "step1Body": "Type a topic or drop in a reference image, set your target duration, tone, and aspect ratio.",
+    "step2Title": "AI breaks it into a timeline",
+    "step2Body": "Your idea is drafted into a script and split into precise 3–5 second beats, timestamped end to end.",
+    "step3Title": "Copy cinematic prompts",
+    "step3Body": "Every beat ships with a dense, professional English prompt — camera moves, lighting, lens, mood — ready to paste."
+  },
+  "featureGrid": {
+    "eyebrow": "Why SceneForge",
+    "heading": "Built by directors, for creators.",
+    "f1Title": "Cinematic camera language built-in",
+    "f1Body": "Dolly ins, whip pans, rack focus, orbit shots — applied purposefully, not randomly, by a director-trained prompt engine.",
+    "f2Title": "3–5s pacing tuned for short-form",
+    "f2Body": "Every beat is timed for the attention span of Reels, TikTok, and Shorts — no dead air, no rushed cuts.",
+    "f3Title": "Works with any AI video tool",
+    "f3Body": "Prompts are written generically and precisely enough to paste straight into Sora, Runway, Kling, Luma, Veo, or Pika.",
+    "f4Title": "Reference-image aware",
+    "f4Body": "Upload a mood board or product shot and the AI grounds the entire narrative in what it sees.",
+    "f5Title": "Tone-matched narrative",
+    "f5Body": "Cinematic, energetic, documentary, luxury, or comedic — tone shapes both the story and the shot choices.",
+    "f6Title": "Zero prompt-engineering required",
+    "f6Body": "You bring the idea. SceneForge writes the dense, technical, professional-grade prompt paragraph for you."
+  },
+  "preview": {
+    "eyebrow": "Preview",
+    "heading": "Your storyboard, beat by beat.",
+    "seg1Scene": "Alarm buzzes in a dim bedroom; a hand reaches out to silence it.",
+    "seg2Scene": "She rises, sunlight floods the room, energetic stretch.",
+    "seg3Scene": "Whip pan to a fresh green smoothie on the kitchen counter."
+  },
+  "generate": {
+    "newProject": "New Project",
+    "buildStoryboard": "Build your storyboard.",
+    "describeIdea": "Describe your idea",
+    "topicPlaceholder": "A cinematic morning routine video for a fitness influencer, energetic and motivational tone...",
+    "charCount": "{count}/{max}",
+    "referenceImage": "Reference image (optional)",
+    "dropzonePrefix": "Drag & drop a reference image, or",
+    "dropzoneBrowse": "browse",
+    "dropzoneHint": "PNG, JPEG, or WebP · up to 8MB",
+    "imageTypeError": "Please upload a PNG, JPEG, or WebP image.",
+    "imageSizeError": "Image must be smaller than 8MB.",
+    "removeImage": "Remove image",
+    "targetDuration": "Target duration",
+    "toneStyle": "Tone / style",
+    "aspectRatio": "Aspect ratio",
+    "toneCinematic": "Cinematic",
+    "toneEnergetic": "Energetic / Fast-cut",
+    "toneDocumentary": "Documentary",
+    "toneLuxury": "Luxury / Slow",
+    "toneComedic": "Comedic",
+    "aspectVertical": "9:16 Vertical",
+    "aspectHorizontal": "16:9 Horizontal",
+    "aspectSquare": "1:1 Square",
+    "generateButton": "Generate Storyboard",
+    "generatingButton": "Generating…",
+    "topicRequiredError": "Add a topic description or upload a reference image to continue.",
+    "topicMaxError": "Keep your topic under 1200 characters."
+  },
+  "loader": {
+    "stage1": "Analyzing topic…",
+    "stage2": "Breaking down timeline…",
+    "stage3": "Framing shots…",
+    "stage4": "Choosing camera language…",
+    "stage5": "Writing cinematic prompts…",
+    "hint": "This usually takes 15–40 seconds depending on complexity."
+  },
+  "error": {
+    "heading": "Generation failed",
+    "tryAgain": "Try Again",
+    "unknown": "Unknown error.",
+    "generic": "Something went wrong. Please try again."
+  },
+  "timeline": {
+    "totalSuffix": "total",
+    "copyAllPrompts": "Copy All Prompts",
+    "exportTxt": "Export .txt",
+    "exportJson": "Export .json",
+    "allCopiedToast": "All prompts copied to clipboard",
+    "regenerateFailedToast": "Failed to regenerate segment."
+  },
+  "segment": {
+    "segmentLabel": "Segment {n}",
+    "tryAgain": "Try again",
+    "hidePrompt": "Hide prompt",
+    "showPrompt": "Show prompt",
+    "copiedToast": "Segment {n} prompt copied",
+    "regeneratedToast": "Segment {n} regenerated"
+  },
+  "copy": {
+    "copy": "Copy",
+    "copied": "Copied",
+    "copiedToast": "Copied to clipboard"
+  },
+  "history": {
+    "eyebrow": "Your Projects",
+    "title": "History",
+    "emptyState": "No projects yet — generate your first storyboard.",
+    "startGenerating": "Start Generating",
+    "open": "Open",
+    "deleteProject": "Delete project",
+    "segmentsSuffix": "segments",
+    "totalLabel": "total"
+  }
+}

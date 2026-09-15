@@ -2,6 +2,7 @@
 
 import { useCallback, useRef, useState } from "react";
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 import { ImagePlus, X } from "lucide-react";
 import { ACCEPTED_IMAGE_TYPES, MAX_IMAGE_BYTES } from "@/lib/validation";
 import { cn } from "@/lib/utils";
@@ -12,6 +13,7 @@ interface ImageDropzoneProps {
 }
 
 export function ImageDropzone({ onImageChange, error }: ImageDropzoneProps) {
+  const t = useTranslations("generate");
   const inputRef = useRef<HTMLInputElement>(null);
   const [preview, setPreview] = useState<string | null>(null);
   const [dragActive, setDragActive] = useState(false);
@@ -21,11 +23,11 @@ export function ImageDropzone({ onImageChange, error }: ImageDropzoneProps) {
     (file: File) => {
       setLocalError(null);
       if (!ACCEPTED_IMAGE_TYPES.includes(file.type)) {
-        setLocalError("Please upload a PNG, JPEG, or WebP image.");
+        setLocalError(t("imageTypeError"));
         return;
       }
       if (file.size > MAX_IMAGE_BYTES) {
-        setLocalError("Image must be smaller than 8MB.");
+        setLocalError(t("imageSizeError"));
         return;
       }
       const reader = new FileReader();
@@ -37,7 +39,7 @@ export function ImageDropzone({ onImageChange, error }: ImageDropzoneProps) {
       };
       reader.readAsDataURL(file);
     },
-    [onImageChange]
+    [onImageChange, t]
   );
 
   function handleDrop(e: React.DragEvent<HTMLDivElement>) {
@@ -70,7 +72,7 @@ export function ImageDropzone({ onImageChange, error }: ImageDropzoneProps) {
           onClick={handleRemove}
           data-cursor="hover"
           className="absolute right-3 top-3 rounded-full bg-background/80 p-2 text-foreground backdrop-blur hover:text-accent"
-          aria-label="Remove image"
+          aria-label={t("removeImage")}
         >
           <X className="h-4 w-4" />
         </button>
@@ -101,9 +103,9 @@ export function ImageDropzone({ onImageChange, error }: ImageDropzoneProps) {
       >
         <ImagePlus className="h-6 w-6 text-muted" />
         <p className="text-sm text-muted">
-          Drag &amp; drop a reference image, or <span className="text-accent">browse</span>
+          {t("dropzonePrefix")} <span className="text-accent">{t("dropzoneBrowse")}</span>
         </p>
-        <p className="text-xs text-muted/70">PNG, JPEG, or WebP · up to 8MB</p>
+        <p className="text-xs text-muted/70">{t("dropzoneHint")}</p>
       </div>
       <input
         ref={inputRef}

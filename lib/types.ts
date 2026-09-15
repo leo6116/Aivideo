@@ -34,6 +34,7 @@ export interface GenerateStoryboardInput {
   duration: Duration;
   tone: Tone;
   aspectRatio: AspectRatio;
+  locale?: string;
 }
 
 export interface StoryboardProject {

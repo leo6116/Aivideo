@@ -1,0 +1,148 @@
+{
+  "metadata": {
+    "title": "SceneForge AI — Kịch bản & Prompt Video AI Điện ảnh",
+    "description": "Biến một chủ đề hoặc hình ảnh tham khảo thành kịch bản video hoàn chỉnh, chia thành các đoạn timeline được canh nhịp hoàn hảo với prompt AI điện ảnh, sẵn sàng sao chép.",
+    "ogDescription": "Từ ý tưởng đến prompt video AI điện ảnh, sẵn sàng sao chép — chia thành timeline canh nhịp hoàn hảo, chỉ trong chưa đầy một phút."
+  },
+  "nav": {
+    "home": "Trang chủ",
+    "generate": "Tạo mới",
+    "history": "Lịch sử",
+    "newProject": "Dự án mới"
+  },
+  "footer": {
+    "tagline": "Từ ý tưởng đến prompt video AI điện ảnh, sẵn sàng sao chép — chia thành timeline canh nhịp hoàn hảo, chỉ trong chưa đầy một phút.",
+    "product": "Sản phẩm",
+    "worksWith": "Hoạt động với",
+    "copyright": "© {year} SceneForge AI. Dành cho nhà sáng tạo."
+  },
+  "languageSwitcher": {
+    "label": "Ngôn ngữ"
+  },
+  "hero": {
+    "eyebrow": "Công cụ tạo kịch bản & Prompt Video AI",
+    "headline": "Biến một ý tưởng thành timeline prompt điện ảnh.",
+    "headlineHighlight": "điện,ảnh",
+    "subheadline": "Dán một chủ đề hoặc thả vào ảnh tham khảo. SceneForge AI sẽ chia nhỏ thành các đoạn 3–5 giây và viết prompt tiếng Anh cực kỳ chi tiết, điện ảnh, sẵn sàng sao chép cho Sora, Runway, Kling, Luma, Veo và Pika — không cần biết kỹ thuật viết prompt.",
+    "startGenerating": "Bắt đầu tạo",
+    "viewHistory": "Xem lịch sử",
+    "statBeatValue": "3–5s",
+    "statBeatLabel": "độ dài mỗi đoạn",
+    "statToolsValue": "6",
+    "statToolsLabel": "công cụ video AI",
+    "statPromptValue": "<60s",
+    "statPromptLabel": "để có prompt đầu tiên",
+    "statReadyValue": "100%",
+    "statReadyLabel": "sẵn sàng sao chép"
+  },
+  "marquee": {
+    "items": "KỊCH BẢN,TIMELINE,PROMPT ĐIỆN ẢNH,SAO CHÉP & DÁN,NGÔN NGỮ MÁY QUAY,NHỊP 3–5 GIÂY"
+  },
+  "howItWorks": {
+    "eyebrow": "Cách hoạt động",
+    "heading": "Từ trang trắng đến danh sách cảnh quay.",
+    "step1Title": "Mô tả ý tưởng của bạn",
+    "step1Body": "Nhập một chủ đề hoặc thả vào ảnh tham khảo, chọn thời lượng, tông giọng và tỷ lệ khung hình mong muốn.",
+    "step2Title": "AI chia thành timeline",
+    "step2Body": "Ý tưởng của bạn được soạn thành kịch bản và chia thành các đoạn chính xác 3–5 giây, gắn dấu thời gian từ đầu đến cuối.",
+    "step3Title": "Sao chép prompt điện ảnh",
+    "step3Body": "Mỗi đoạn đi kèm một prompt tiếng Anh chuyên nghiệp, chi tiết — chuyển động máy quay, ánh sáng, ống kính, tông màu — sẵn sàng để dán."
+  },
+  "featureGrid": {
+    "eyebrow": "Vì sao chọn SceneForge",
+    "heading": "Được xây dựng bởi đạo diễn, dành cho nhà sáng tạo.",
+    "f1Title": "Tích hợp sẵn ngôn ngữ máy quay điện ảnh",
+    "f1Body": "Dolly in, whip pan, rack focus, orbit shot — được áp dụng có chủ đích, không ngẫu nhiên, bởi engine prompt được huấn luyện như một đạo diễn.",
+    "f2Title": "Nhịp độ 3–5 giây phù hợp cho video ngắn",
+    "f2Body": "Mỗi đoạn được canh thời gian theo khả năng tập trung của Reels, TikTok và Shorts — không có khoảng chết, không cắt vội.",
+    "f3Title": "Hoạt động với mọi công cụ video AI",
+    "f3Body": "Prompt được viết đủ tổng quát và chính xác để dán thẳng vào Sora, Runway, Kling, Luma, Veo hoặc Pika.",
+    "f4Title": "Hiểu được ảnh tham khảo",
+    "f4Body": "Tải lên mood board hoặc ảnh sản phẩm, AI sẽ xây dựng toàn bộ câu chuyện dựa trên những gì nó thấy.",
+    "f5Title": "Câu chuyện khớp với tông giọng",
+    "f5Body": "Điện ảnh, năng động, phim tài liệu, sang trọng hay hài hước — tông giọng định hình cả câu chuyện lẫn cách chọn cảnh quay.",
+    "f6Title": "Không cần biết kỹ thuật viết prompt",
+    "f6Body": "Bạn chỉ cần mang ý tưởng đến. SceneForge sẽ viết đoạn prompt chuyên nghiệp, chi tiết kỹ thuật thay bạn."
+  },
+  "preview": {
+    "eyebrow": "Xem trước",
+    "heading": "Storyboard của bạn, từng đoạn một.",
+    "seg1Scene": "Chuông báo thức reo trong phòng ngủ mờ tối; một bàn tay vươn ra tắt chuông.",
+    "seg2Scene": "Cô ấy thức dậy, ánh nắng tràn vào phòng, vươn vai đầy năng lượng.",
+    "seg3Scene": "Máy quay lia nhanh sang một ly sinh tố xanh tươi trên quầy bếp."
+  },
+  "generate": {
+    "newProject": "Dự án mới",
+    "buildStoryboard": "Xây dựng storyboard của bạn.",
+    "describeIdea": "Mô tả ý tưởng của bạn",
+    "topicPlaceholder": "Một video giới thiệu thói quen buổi sáng cho một fitness influencer, tông giọng năng động và truyền cảm hứng...",
+    "charCount": "{count}/{max}",
+    "referenceImage": "Ảnh tham khảo (tùy chọn)",
+    "dropzonePrefix": "Kéo thả ảnh tham khảo vào đây, hoặc",
+    "dropzoneBrowse": "chọn ảnh",
+    "dropzoneHint": "PNG, JPEG hoặc WebP · tối đa 8MB",
+    "imageTypeError": "Vui lòng tải lên ảnh định dạng PNG, JPEG hoặc WebP.",
+    "imageSizeError": "Ảnh phải nhỏ hơn 8MB.",
+    "removeImage": "Xóa ảnh",
+    "targetDuration": "Thời lượng mong muốn",
+    "toneStyle": "Tông giọng / Phong cách",
+    "aspectRatio": "Tỷ lệ khung hình",
+    "toneCinematic": "Điện ảnh",
+    "toneEnergetic": "Năng động / Cắt nhanh",
+    "toneDocumentary": "Phim tài liệu",
+    "toneLuxury": "Sang trọng / Chậm rãi",
+    "toneComedic": "Hài hước",
+    "aspectVertical": "9:16 Dọc",
+    "aspectHorizontal": "16:9 Ngang",
+    "aspectSquare": "1:1 Vuông",
+    "generateButton": "Tạo Storyboard",
+    "generatingButton": "Đang tạo…",
+    "topicRequiredError": "Thêm mô tả chủ đề hoặc tải lên ảnh tham khảo để tiếp tục.",
+    "topicMaxError": "Giữ chủ đề dưới 1200 ký tự."
+  },
+  "loader": {
+    "stage1": "Đang phân tích chủ đề…",
+    "stage2": "Đang chia nhỏ timeline…",
+    "stage3": "Đang dàn khung hình…",
+    "stage4": "Đang chọn ngôn ngữ máy quay…",
+    "stage5": "Đang viết prompt điện ảnh…",
+    "hint": "Quá trình này thường mất 15–40 giây tùy độ phức tạp."
+  },
+  "error": {
+    "heading": "Tạo storyboard thất bại",
+    "tryAgain": "Thử lại",
+    "unknown": "Lỗi không xác định.",
+    "generic": "Đã có lỗi xảy ra. Vui lòng thử lại."
+  },
+  "timeline": {
+    "totalSuffix": "tổng cộng",
+    "copyAllPrompts": "Sao chép tất cả Prompt",
+    "exportTxt": "Xuất .txt",
+    "exportJson": "Xuất .json",
+    "allCopiedToast": "Đã sao chép tất cả prompt vào clipboard",
+    "regenerateFailedToast": "Tạo lại đoạn thất bại."
+  },
+  "segment": {
+    "segmentLabel": "Đoạn {n}",
+    "tryAgain": "Thử lại",
+    "hidePrompt": "Ẩn prompt",
+    "showPrompt": "Hiện prompt",
+    "copiedToast": "Đã sao chép prompt đoạn {n}",
+    "regeneratedToast": "Đã tạo lại đoạn {n}"
+  },
+  "copy": {
+    "copy": "Sao chép",
+    "copied": "Đã sao chép",
+    "copiedToast": "Đã sao chép vào clipboard"
+  },
+  "history": {
+    "eyebrow": "Dự án của bạn",
+    "title": "Lịch sử",
+    "emptyState": "Chưa có dự án nào — hãy tạo storyboard đầu tiên của bạn.",
+    "startGenerating": "Bắt đầu tạo",
+    "open": "Mở",
+    "deleteProject": "Xóa dự án",
+    "segmentsSuffix": "đoạn",
+    "totalLabel": "tổng"
+  }
+}

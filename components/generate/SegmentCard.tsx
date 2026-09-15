@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useTranslations } from "next-intl";
 import { motion } from "framer-motion";
 import { RefreshCw } from "lucide-react";
 import { Badge } from "@/components/ui/Badge";
@@ -16,6 +17,7 @@ interface SegmentCardProps {
 }
 
 export function SegmentCard({ segment, index, onRegenerate, regenerating }: SegmentCardProps) {
+  const t = useTranslations("segment");
   const [expanded, setExpanded] = useState(true);
 
   return (
@@ -28,7 +30,7 @@ export function SegmentCard({ segment, index, onRegenerate, regenerating }: Segm
       <div className="flex flex-wrap items-start justify-between gap-4">
         <div className="flex flex-wrap items-center gap-2">
           <Badge variant="accent">
-            Segment {segment.index + 1} · {formatTimestamp(segment.startTime)}–{formatTimestamp(segment.endTime)}
+            {t("segmentLabel", { n: segment.index + 1 })} · {formatTimestamp(segment.startTime)}–{formatTimestamp(segment.endTime)}
           </Badge>
           {segment.cameraTechniques.map((tech) => (
             <Badge key={tech} variant="outline">
@@ -47,10 +49,10 @@ export function SegmentCard({ segment, index, onRegenerate, regenerating }: Segm
               className="inline-flex items-center gap-1.5 rounded-lg border border-border px-3 py-1.5 text-xs font-medium text-muted transition-colors duration-150 hover:border-accent hover:text-accent disabled:opacity-50"
             >
               <RefreshCw className={`h-3.5 w-3.5 ${regenerating ? "animate-spin" : ""}`} />
-              Try again
+              {t("tryAgain")}
             </button>
           )}
-          <CopyButton text={segment.videoPrompt} toastMessage={`Segment ${segment.index + 1} prompt copied`} />
+          <CopyButton text={segment.videoPrompt} toastMessage={t("copiedToast", { n: segment.index + 1 })} />
         </div>
       </div>
 
@@ -62,7 +64,7 @@ export function SegmentCard({ segment, index, onRegenerate, regenerating }: Segm
         data-cursor="hover"
         className="mt-4 text-xs font-medium uppercase tracking-widest text-muted hover:text-accent"
       >
-        {expanded ? "Hide prompt" : "Show prompt"}
+        {expanded ? t("hidePrompt") : t("showPrompt")}
       </button>
 
       {expanded && (

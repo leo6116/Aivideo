@@ -1,5 +1,6 @@
 "use client";
 
+import { useLocale, useTranslations } from "next-intl";
 import { AnimatePresence, motion } from "framer-motion";
 import { InputPanel } from "@/components/generate/InputPanel";
 import { GenerationLoader } from "@/components/generate/GenerationLoader";
@@ -12,6 +13,9 @@ import type { GenerateFormValues } from "@/lib/validation";
 import type { Duration, Tone, AspectRatio } from "@/lib/types";
 
 export default function GeneratePage() {
+  const t = useTranslations("generate");
+  const tError = useTranslations("error");
+  const locale = useLocale();
   const { status, errorMessage, storyboard, startGenerating, setSuccess, setError, reset, updateSegment } =
     useGeneratorStore();
 
@@ -28,10 +32,10 @@ export default function GeneratePage() {
       const res = await fetch("/api/generate-script", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(values),
+        body: JSON.stringify({ ...values, locale }),
       });
       const data = await res.json();
-      if (!res.ok) throw new Error(data.error || "Something went wrong while generating your storyboard.");
+      if (!res.ok) throw new Error(data.error || tError("generic"));
 
       setSuccess(data.storyboard);
 
@@ -48,7 +52,7 @@ export default function GeneratePage() {
         storyboard: data.storyboard,
       });
     } catch (err) {
-      setError(err instanceof Error ? err.message : "Something went wrong. Please try again.");
+      setError(err instanceof Error ? err.message : tError("generic"));
     }
   }
 
@@ -63,10 +67,8 @@ export default function GeneratePage() {
             exit={{ opacity: 0 }}
             className="mx-auto max-w-2xl px-5 py-20 sm:px-8"
           >
-            <p className="mb-3 text-xs font-medium uppercase tracking-[0.3em] text-accent">New Project</p>
-            <h1 className="mb-10 text-3xl font-bold tracking-tight sm:text-4xl">
-              Build your storyboard.
-            </h1>
+            <p className="mb-3 text-xs font-medium uppercase tracking-[0.3em] text-accent">{t("newProject")}</p>
+            <h1 className="mb-10 text-3xl font-bold tracking-tight sm:text-4xl">{t("buildStoryboard")}</h1>
             <InputPanel onSubmit={handleSubmit} submitting={false} />
           </motion.div>
         )}
@@ -79,7 +81,7 @@ export default function GeneratePage() {
 
         {status === "error" && (
           <motion.div key="error" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
-            <GenerationError message={errorMessage ?? "Unknown error."} onRetry={reset} />
+            <GenerationError message={errorMessage ?? tError("unknown")} onRetry={reset} />
           </motion.div>
         )}
 

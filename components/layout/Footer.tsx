@@ -1,7 +1,11 @@
-import Link from "next/link";
+import { useTranslations } from "next-intl";
 import { Clapperboard } from "lucide-react";
+import { Link } from "@/i18n/navigation";
 
 export function Footer() {
+  const t = useTranslations("footer");
+  const tNav = useTranslations("nav");
+
   return (
     <footer className="border-t border-border">
       <div className="mx-auto flex max-w-[1440px] flex-col gap-8 px-5 py-16 sm:px-8 md:flex-row md:items-end md:justify-between">
@@ -12,31 +16,28 @@ export function Footer() {
               Scene<span className="text-accent">Forge</span> AI
             </span>
           </div>
-          <p className="max-w-sm text-sm leading-relaxed text-muted">
-            From idea to cinematic, copy-paste-ready AI video prompts — broken into a
-            perfectly paced timeline, in under a minute.
-          </p>
+          <p className="max-w-sm text-sm leading-relaxed text-muted">{t("tagline")}</p>
         </div>
 
         <div className="flex gap-10 text-sm">
           <div className="flex flex-col gap-3">
-            <span className="text-xs font-medium uppercase tracking-widest text-muted">Product</span>
+            <span className="text-xs font-medium uppercase tracking-widest text-muted">{t("product")}</span>
             <Link href="/generate" className="text-foreground hover:text-accent">
-              Generate
+              {tNav("generate")}
             </Link>
             <Link href="/history" className="text-foreground hover:text-accent">
-              History
+              {tNav("history")}
             </Link>
           </div>
           <div className="flex flex-col gap-3">
-            <span className="text-xs font-medium uppercase tracking-widest text-muted">Works with</span>
+            <span className="text-xs font-medium uppercase tracking-widest text-muted">{t("worksWith")}</span>
             <span className="text-muted">Sora · Runway · Kling</span>
             <span className="text-muted">Luma · Veo · Pika</span>
           </div>
         </div>
       </div>
       <div className="border-t border-border py-6 text-center text-xs text-muted">
-        © {new Date().getFullYear()} SceneForge AI. Built for creators.
+        {t("copyright", { year: new Date().getFullYear() })}
       </div>
     </footer>
   );
